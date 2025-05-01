@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Traveller Unknown | Checkout</title>
+  <link rel="stylesheet" href="checkout.css">
+  <script src="products.js" defer></script>
+  <script src="cart.js" defer></script>
+</head>
+<body>
+  <header id="site-header">
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="category-overview.html">Categories</a> |
+      <a href="profile.html">Profile</a>
+    </nav>
+  </header>
+
+  <main class="content">
+    <h1>Checkout</h1>
+
+    <!-- Cart Items List -->
+    <section id="cartItems" class="cart-list"></section>
+
+    <!-- Shipping Address Form -->
+    <section class="address-section">
+      <h2>Shipping Address</h2>
+      <form id="addressForm">
+        <input type="text" id="addressLine" placeholder="Street Address" required>
+        <input type="text" id="city" placeholder="City" required>
+        <input type="text" id="state" placeholder="State/Province" required>
+        <input type="text" id="zip" placeholder="ZIP/Postal Code" required>
+        <button type="submit">Save Address</button>
+      </form>
+      <p id="savedAddress"></p>
+    </section>
+
+    <!-- Coupon Code -->
+    <section class="coupon-section">
+      <h2>Apply Coupon</h2>
+      <input type="text" id="couponInput" placeholder="Enter coupon code">
+      <button id="applyCoupon">Apply</button>
+      <p id="couponMessage"></p>
+    </section>
+
+    <!-- Payment Section -->
+    <section class="payment-section">
+      <h2>Choose Payment Method</h2>
+      <form id="paymentForm">
+        <div class="payment-options">
+          <label><input type="radio" name="payment" value="card" checked> Credit Card</label>
+          <label><input type="radio" name="payment" value="paypal"> PayPal</label>
+          <label><input type="radio" name="payment" value="credits"> Traveller Credits</label>
+        </div>
+
+        <!-- Credit Card Fields -->
+        <div id="cardFields" class="payment-fields">
+          <input type="text" id="cardName" placeholder="Name on Card">
+          <input type="text" id="cardNumber" placeholder="Card Number">
+          <div class="half">
+            <input type="text" id="cardExpiry" placeholder="MM/YY">
+            <input type="text" id="cardCVC" placeholder="CVC">
+          </div>
+        </div>
+
+        <button type="submit" class="button">Place Order</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

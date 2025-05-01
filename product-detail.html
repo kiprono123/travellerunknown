@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Traveller Unknown | Product Details</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="products.js" defer></script>
+  <script src="cart.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Product Details</h1>
+    <nav><a href="categories.html">Categories</a></nav>
+  </header>
+  <section class="product-details" id="productDetailContainer"></section>
+  <footer>
+    <p>&copy; 2025 Traveller Unknown</p>
+  </footer>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = parseInt(urlParams.get('id'));
+    const product = products.find(p => p.id === productId);
+    const container = document.getElementById('productDetailContainer');
+    if (product) {
+      container.innerHTML = \`
+        <div class="product-card detail">
+          <img src="\${product.image}" alt="\${product.name}">
+          <div class="product-info">
+            <h2>\${product.name}</h2>
+            <p>\${product.description}</p>
+            <p><strong>\${product.price}</strong></p>
+            <button onclick="addToCart(\${product.id})">Add to Cart</button>
+          </div>
+        </div>\`;
+    } else {
+      container.textContent = 'Product not found.';
+    }
+  </script>
+</body>
+</html>
